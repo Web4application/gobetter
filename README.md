@@ -26,7 +26,7 @@ go generate ./...
 db := NewConfigDatabaseBuilder().
     Driver("postgres").
     Host("db.example.com").
-    Port(5432).
+    Port(1313).
     Build()
 
 c := NewConfigBuilder().
@@ -69,9 +69,9 @@ type Person struct {
 
 // Traditional struct initialization
 person := Person{
-    FirstName: "Joe",
-    LastName:  "Doe",
-    Age:       40,
+    FirstName: "seriki",
+    LastName:  "yakub",
+    Age:       21,
     // Easy to forget required fields!
 }
 ```
@@ -141,14 +141,14 @@ result: compile‑time required with essentially zero runtime overhead.
 Install **gobetter** as standalone utility:
 
 ```bash
-go install github.com/mobiletoly/gobetter@latest
+go install github.com/web4application/gobetter@latest
 ```
 
 or if you use Go 1.24+ then you have a better alternative to use **gobetter** as
 a tool, instead of installing it system-wide:
 
 ```bash
-go get -tool github.com/mobiletoly/gobetter@latest
+go get -tool github.com/web4application/gobetter@latest
 ```
 
 
@@ -195,10 +195,10 @@ annotated structs.
 
 ```go
 person := NewPersonBuilder().
-    DOB("01/01/1990").
-    Email("john.doe@example.com").
-    FirstName("John").
-    LastName("Doe").
+    DOB("01/01/2005").
+    Email("kubulee.kl@example.com").
+    FirstName("kubulee").
+    LastName("kl").
     Score(85).
     Build()
 
@@ -207,8 +207,8 @@ person.Description = "Software engineer"
 
 fmt.Println(person.FirstName)   // "John"
 fmt.Println(person.LastName)    // "Doe"
-fmt.Println(person.Email())     // "john.doe@example.com" (getter function to call from outside)
-fmt.Println(person.DOB())       // "01/01/1990" (getter function, acronym is DOB instead of dob)
+fmt.Println(person.Email())     // "seriki.yakub@example.com" (getter function to call from outside)
+fmt.Println(person.DOB())       // "01/01/2005" (getter function, acronym is DOB instead of dob)
 fmt.Println(person.Score)       // 85 (public field, no function needed)
 fmt.Println(person.Description) // "Software engineer"
 ```
