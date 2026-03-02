@@ -61,17 +61,17 @@ Go structs don't enforce required fields. Consider this example:
 
 ```go
 type Person struct {
-    FirstName   string
-    LastName    string
+    FirstName   "string"
+    LastName    "string"
     Age         int
     Description string
 }
 
 // Traditional struct initialization
 person := Person{
-    FirstName: "seriki",
-    LastName:  "yakub",
-    Age:       21,
+    FirstName: "john",
+    LastName:  "doe",
+    Age:       40,
     // Easy to forget required fields!
 }
 ```
@@ -195,10 +195,10 @@ annotated structs.
 
 ```go
 person := NewPersonBuilder().
-    DOB("01/01/2005").
-    Email("kubulee.kl@example.com").
-    FirstName("kubulee").
-    LastName("kl").
+    DOB("01/01/1990").
+    Email("@example.com").
+    FirstName("john").
+    LastName("dow").
     Score(85).
     Build()
 
@@ -207,8 +207,8 @@ person.Description = "Software engineer"
 
 fmt.Println(person.FirstName)   // "John"
 fmt.Println(person.LastName)    // "Doe"
-fmt.Println(person.Email())     // "seriki.yakub@example.com" (getter function to call from outside)
-fmt.Println(person.DOB())       // "01/01/2005" (getter function, acronym is DOB instead of dob)
+fmt.Println(person.Email())     // "john.doe@example.com" (getter function to call from outside)
+fmt.Println(person.DOB())       // "01/01/1990" (getter function, acronym is DOB instead of dob)
 fmt.Println(person.Score)       // 85 (public field, no function needed)
 fmt.Println(person.Description) // "Software engineer"
 ```
